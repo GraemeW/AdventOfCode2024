@@ -12,7 +12,7 @@
 
 | Day | Puzzle 1 | Puzzle 2 | Notes |
 |:---:|:--------:|:--------:|:----- |
-| [1](/AdventOfCode2024/Day1/README.md)|  |  | TBU |
+| [1](/AdventOfCode2024/Day1/README.md)| X |  | Read-out + sort lists, abs(delta()) & sum. |
 | 2 |  |  |  |
 | 3 |  |  |  |
 | 4 |  |  |  |
