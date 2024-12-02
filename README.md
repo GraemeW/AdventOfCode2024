@@ -8,16 +8,16 @@
 
 ## Progress Summary
 
-**Total Score:** 12
+**Total Score:** 0
 
 | Day | Puzzle 1 | Puzzle 2 | Notes |
 |:---:|:--------:|:--------:|:----- |
 | [1](/AdventOfCode2024/Day1/README.md)|  |  | TBU |
-| 2 | X | X |  |
-| 3 | X | X |  |
-| 4 | X | X |  |
-| 5 | X | X |  | 
-| 6 | X | X |  |
+| 2 |  |  |  |
+| 3 |  |  |  |
+| 4 |  |  |  |
+| 5 |  |  |  | 
+| 6 |  |  |  |
 | 7 |  |  |  |
 | 8 |  |  |  |
 | 9 |  |  |  |
