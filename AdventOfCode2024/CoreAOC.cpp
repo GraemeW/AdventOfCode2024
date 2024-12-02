@@ -10,9 +10,11 @@
 
 string CoreAOC::GetAdventDayInput(string const& inputPath)
 {
+    std::cout << "Loading file:\n";
     std::cout << inputPath;
+    std::cout << "\n";
+    
     std::ifstream in(inputPath);
-    std::cout << in.is_open();
     std::stringstream buffer;
     buffer << in.rdbuf();
     std::string contents(buffer.str());
