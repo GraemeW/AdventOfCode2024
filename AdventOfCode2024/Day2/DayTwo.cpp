@@ -6,12 +6,13 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <list>
 #include "DayTwo.hpp"
 
-bool DayTwo::CheckCriteria(int currentEntry, int lastEntry, bool isSequenceIncrementing, bool verbose)
+bool DayTwo::CheckCriteria(int currentEntry, int lastEntry, bool isIncrementing, bool verbose)
 {
     // Criteria One
-    if (isSequenceIncrementing != (currentEntry > lastEntry))
+    if (isIncrementing != (currentEntry > lastEntry))
     {
         if (verbose) { std::cout << "Warning[Not Continuous] - " << std::endl; }
         return false;
@@ -25,6 +26,16 @@ bool DayTwo::CheckCriteria(int currentEntry, int lastEntry, bool isSequenceIncre
         return false;
     }
     return true;
+}
+
+void DayTwo::GetReportVector(string& line, std::vector<int>& reportVector)
+{
+    std::istringstream wordStream(line);
+    int token;
+    while (wordStream >> token)
+    {
+        reportVector.push_back(token);
+    }
 }
 
 void DayTwo::CrunchPartOne(string& input)
@@ -46,13 +57,10 @@ void DayTwo::CrunchPartOne(string& input)
         // To define initial polarity, pop twice
         wordStream >> lastEntry;
         wordStream >> currentEntry;
-        bool isSequenceIncrementing = currentEntry > lastEntry;
+        bool isIncrementing = currentEntry > lastEntry;
         
         // Check criteria on first two entries, skip through if failing
-        if (!CheckCriteria(currentEntry, lastEntry, isSequenceIncrementing, verbose))
-        {
-            continue;
-        }
+        if (!CheckCriteria(currentEntry, lastEntry, isIncrementing, verbose)) { continue; }
         
         // Iterate and check if levels are safe
         int token;
@@ -61,7 +69,7 @@ void DayTwo::CrunchPartOne(string& input)
             lastEntry = currentEntry;
             currentEntry = token;
             
-            if (!CheckCriteria(currentEntry, lastEntry, isSequenceIncrementing, verbose))
+            if (!CheckCriteria(currentEntry, lastEntry, isIncrementing, verbose))
             {
                 isReportSafe = false;
                 break;
@@ -79,5 +87,51 @@ void DayTwo::CrunchPartOne(string& input)
 
 void DayTwo::CrunchPartTwo(string& input)
 {
-    std::cout << input;
+    int safeReportCount = 0;
+    
+    std::istringstream lineStream(input);
+    for (std::string line; std::getline(lineStream, line); )
+    {
+        if (verbose) { std::cout << line << " - "; }
+        bool isReportSafe = false;
+        
+        std::vector<int> reportVector;
+        GetReportVector(line, reportVector);
+        
+        // Since vector element count small ::
+        // Generate all potential sequences without entries, find if any of them are OK
+        // Exit early if any found OK
+        for (int iElementRemoval = 0; iElementRemoval < reportVector.size(); iElementRemoval++)
+        {
+            isReportSafe = false; // Overall report - override below if safe
+            
+            std::vector<int> testVector(reportVector);
+            testVector.erase(testVector.begin() + iElementRemoval);
+            
+            bool isStepSafe = true; // Step check - override below if unsafe
+            bool isIncrementing = true; // override below at j == 1
+            for (int j = 0; j < testVector.size(); j++)
+            {
+                if (j == 0) { continue; }
+                
+                int currentEntry = testVector[j];
+                int lastEntry = testVector[j-1];
+                if (j == 1) { isIncrementing = (currentEntry > lastEntry); }
+                
+                if (!CheckCriteria(currentEntry, lastEntry, isIncrementing, verbose))
+                {
+                    isStepSafe = false;
+                    break;
+                }
+            }
+            isReportSafe = isStepSafe;
+            
+            if (isReportSafe) break; // Exit early, safe combo found
+        }
+        if (isReportSafe) {safeReportCount++; }
+    }
+
+    // Print output
+    std::cout << "Safe report count is:" << std::endl;
+    std::cout << safeReportCount << std::endl;
 }

@@ -5,6 +5,7 @@
 #pragma once
 #include <stdio.h>
 #include <string>
+#include <list>
 #include <vector>
 #include "../Day.h"
 
@@ -17,8 +18,10 @@ private:
     bool verbose = false;
     int minDifferLevel = 1;
     int maxDifferLevel = 3;
+    int problemDampenerAllowance = 1;
     
-    bool CheckCriteria(int currentEntry, int lastEntry, bool isSequenceIncrementing, bool verbose);
+    bool CheckCriteria(int currentEntry, int lastEntry, bool isIncrementing, bool verbose);
+    void GetReportVector(string& line, std::vector<int>& reportVector);
     
 public:
     // Methods
