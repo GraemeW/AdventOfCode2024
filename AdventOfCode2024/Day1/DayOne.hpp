@@ -5,6 +5,7 @@
 #pragma once
 #include <stdio.h>
 #include <string>
+#include <vector>
 #include "../Day.h"
 
 #ifndef DayOne_hpp
@@ -13,6 +14,7 @@ class DayOne : public Day
 {
 private:
     string inputPath = "Resources/DayOneInput.txt";
+    void GetVectorsFromInput(string& input, std::vector<int> &list1, std::vector<int> &list2);
     
 public:
     // Methods

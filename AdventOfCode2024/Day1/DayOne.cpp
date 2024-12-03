@@ -7,13 +7,11 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <map>
 #include "DayOne.hpp"
 
-void DayOne::CrunchPartOne(string& input)
+void DayOne::GetVectorsFromInput(string& input, std::vector<int> &list1, std::vector<int> &list2)
 {
-    std::vector<int> list1;
-    std::vector<int> list2;
- 
     // Iterate over each line
     std::istringstream lineStream(input);
     for (std::string line; std::getline(lineStream, line); )
@@ -32,6 +30,13 @@ void DayOne::CrunchPartOne(string& input)
     {
         throw std::invalid_argument("Input lists do not match in length, and so comparisons cannot be made");
     }
+}
+
+void DayOne::CrunchPartOne(string& input)
+{
+    std::vector<int> list1;
+    std::vector<int> list2;
+    GetVectorsFromInput(input, list1, list2);
     
     // Sort
     std::sort(list1.begin(), list1.end());
@@ -41,18 +46,40 @@ void DayOne::CrunchPartOne(string& input)
     int listDisparitySum = 0;
     for (int i = 0; i < list1.size(); i++)
     {
-        std::cout << list1[i] << "\n";
-        std::cout << list2[i] << "\n";
         listDisparitySum += abs(list1[i] - list2[i]);
     }
     
     // Print output
-    std::cout << "Summed disparity in lists is:\n";
-    std::cout << listDisparitySum;
-    std::cout << "\n";
+    std::cout << "Summed disparity in lists is:" << std::endl;
+    std::cout << listDisparitySum << std::endl;
 }
 
 void DayOne::CrunchPartTwo(string& input)
 {
-    std::cout << input;
+    std::vector<int> list1;
+    std::vector<int> list2;
+    GetVectorsFromInput(input, list1, list2);
+    
+    // Create map of second list instance count
+    std::map<int, int> list2EntryFrequency;
+    for (int i = 0; i < list2.size(); i++)
+    {
+        list2EntryFrequency[list2[i]]++;
+    }
+    
+    // Iterate over first list, multiply out & add
+    int similarityScore = 0;
+    for (int i = 0; i < list1.size(); i++)
+    {
+        int entry = list1[i];
+        
+        int multiplier = 0;
+        if (list2EntryFrequency.count(entry)) { multiplier = list2EntryFrequency[entry]; }
+        
+        similarityScore += entry * multiplier;
+    }
+    
+    // Print output
+    std::cout << "Similarity score is:" << std::endl;
+    std::cout << similarityScore << std::endl;
 }
