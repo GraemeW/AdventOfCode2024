@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayThreeInput.txt
+Total product is:
+160672468
 ```
 
 **Part 2:**
