@@ -14,7 +14,7 @@ class CoreAOC
 {
     // Attributes
     public:
-        enum AdventDay { AdventDayOne, AdventDayTwo };
+        enum AdventDay { AdventDayOne, AdventDayTwo, AdventDayThree };
 
     // Methods
     public:
