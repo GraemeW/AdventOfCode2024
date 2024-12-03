@@ -10,33 +10,33 @@
 
 **Total Score:** 0
 
-|  Day  |                          Title                          | Puzzle 1 | Puzzle 2 | Notes                                                        |
-| :---: | :-----------------------------------------------------: | :------: | :------: | :----------------------------------------------------------- |
-|   1   | [Historian Hysteria](./AdventOfCode2024/Day1/README.md) |    X     |    X     | Sort lists, abs(delta()), sum. Map frequency, multiply, sum. |
-|   2   | [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)  |    X     |    X     |    Iterate vector, check adjacent element criteria. Remove vector elements combinatorally, check same criteria.      |
-|   3   |                                                         |          |          |                                                              |
-|   4   |                                                         |          |          |                                                              |
-|   5   |                                                         |          |          |                                                              |
-|   6   |                                                         |          |          |                                                              |
-|   7   |                                                         |          |          |                                                              |
-|   8   |                                                         |          |          |                                                              |
-|   9   |                                                         |          |          |                                                              |
-|  10   |                                                         |          |          |                                                              |
-|  11   |                                                         |          |          |                                                              |
-|  12   |                                                         |          |          |                                                              |
-|  13   |                                                         |          |          |                                                              |
-|  14   |                                                         |          |          |                                                              |
-|  15   |                                                         |          |          |                                                              |
-|  16   |                                                         |          |          |                                                              |
-|  17   |                                                         |          |          |                                                              |
-|  18   |                                                         |          |          |                                                              |
-|  19   |                                                         |          |          |                                                              |
-|  20   |                                                         |          |          |                                                              |
-|  21   |                                                         |          |          |                                                              |
-|  22   |                                                         |          |          |                                                              |
-|  23   |                                                         |          |          |                                                              |
-|  24   |                                                         |          |          |                                                              |
-|  25   |                                                         |          |          |                                                              |
+|  Day  |                          Title                          | Puzzle 1 | Puzzle 2 | Notes                                                                                                        |
+| :---: | :-----------------------------------------------------: | :------: | :------: | :----------------------------------------------------------------------------------------------------------- |
+|   1   | [Historian Hysteria](./AdventOfCode2024/Day1/README.md) |    X     |    X     | Sort lists, abs(delta()), sum. Map frequency, multiply, sum.                                                 |
+|   2   | [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)  |    X     |    X     | Iterate vector, check adjacent element criteria. Remove vector elements, check criteria. |
+|   3   |    [Mull It Over](./AdventOfCode2024/Day3/README.md)    |          |          |                                                                                                              |
+|   4   |                                                         |          |          |                                                                                                              |
+|   5   |                                                         |          |          |                                                                                                              |
+|   6   |                                                         |          |          |                                                                                                              |
+|   7   |                                                         |          |          |                                                                                                              |
+|   8   |                                                         |          |          |                                                                                                              |
+|   9   |                                                         |          |          |                                                                                                              |
+|  10   |                                                         |          |          |                                                                                                              |
+|  11   |                                                         |          |          |                                                                                                              |
+|  12   |                                                         |          |          |                                                                                                              |
+|  13   |                                                         |          |          |                                                                                                              |
+|  14   |                                                         |          |          |                                                                                                              |
+|  15   |                                                         |          |          |                                                                                                              |
+|  16   |                                                         |          |          |                                                                                                              |
+|  17   |                                                         |          |          |                                                                                                              |
+|  18   |                                                         |          |          |                                                                                                              |
+|  19   |                                                         |          |          |                                                                                                              |
+|  20   |                                                         |          |          |                                                                                                              |
+|  21   |                                                         |          |          |                                                                                                              |
+|  22   |                                                         |          |          |                                                                                                              |
+|  23   |                                                         |          |          |                                                                                                              |
+|  24   |                                                         |          |          |                                                                                                              |
+|  25   |                                                         |          |          |                                                                                                              |
 
 ## Running the Solutions
 
