@@ -13,7 +13,7 @@
 |                  Day                  |        Title         | Puzzle 1 | Puzzle 2 | Notes                                      |
 | :-----------------------------------: | :------------------: | :------: | :------: | :----------------------------------------- |
 | 1 | [Historian Hysteria](./AdventOfCode2024/Day1/README.md) |    X     |     X    | Sort lists, abs(delta()), sum. Map frequency, multiply, sum. |
-|                   2                   |                      |          |          |                                            |
+|                   2                   |      [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)       |          |          |                                            |
 |                   3                   |                      |          |          |                                            |
 |                   4                   |                      |          |          |                                            |
 |                   5                   |                      |          |          |                                            |
