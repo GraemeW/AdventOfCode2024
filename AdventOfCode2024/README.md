@@ -39,7 +39,8 @@ The process for adding new day problems is as follows:
 	* Generate new DayXYZ .hpp/.cpp files, with the DayXYZ class derived from Day
 	* Include the path to the day's input test in resources under the string inputPath
 3. Add a new enum to the AdventDay enum in [CoreAOC.hpp](./CoreAOC.hpp)
-4. Update GetDaySelectors() switch statement to return the relevant Day in [CoreAOC.cpp](./CoreAOC.cpp)
+4. Add an include for the new day class in [Days](./Days.h)
+5. Update GetDaySelectors() switch statement to return the relevant Day in [CoreAOC.cpp](./CoreAOC.cpp)
 
 
 ## NOTE: ON COMPILING

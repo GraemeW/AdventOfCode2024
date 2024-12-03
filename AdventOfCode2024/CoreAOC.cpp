@@ -29,6 +29,11 @@ Day* CoreAOC::GetDaySelectors(CoreAOC::AdventDay adventDay)
             DayOne* dayOne = new DayOne();
             return dayOne;
         }
+        case CoreAOC::AdventDay::AdventDayTwo:
+        {
+            DayTwo* dayTwo = new DayTwo();
+            return dayTwo;
+        }
     }
     DayZero* dayZero = new DayZero();
     return dayZero;
