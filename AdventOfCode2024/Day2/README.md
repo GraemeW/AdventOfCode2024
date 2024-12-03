@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayTwoInput.txt
+Safe report count is:
+591
 ```
 
 **Part 2:**

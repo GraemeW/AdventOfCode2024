@@ -14,7 +14,11 @@ class DayTwo : public Day
 {
 private:
     string inputPath = "Resources/DayTwoInput.txt";
-    void GetVectorsFromInput(string& input, std::vector<int> &list1, std::vector<int> &list2);
+    bool verbose = false;
+    int minDifferLevel = 1;
+    int maxDifferLevel = 3;
+    
+    bool CheckCriteria(int currentEntry, int lastEntry, bool isSequenceIncrementing, bool verbose);
     
 public:
     // Methods
