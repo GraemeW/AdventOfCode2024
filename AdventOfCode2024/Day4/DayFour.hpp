@@ -14,7 +14,20 @@
 class DayFour : public Day
 {
 private:
+    // Tunables
     string inputPath = "Resources/DayFourInput.txt";
+    bool verbose = false;
+    int lineBufferLength = 3;
+    std::vector<string> matchStrings = {"XMAS"}; // Note:  Will use below method to build superset match (e.g. incl. reverse)
+    
+    enum CheckDirection { NorthWest, North, NorthEast, West };
+    char dummyChar = 'O';
+    
+    // Methods
+    void GetWordMatchMatrix(string& input, std::vector<std::vector<char>>& wordMatchMatrix);
+    void GetSupersetMatchStrings(std::vector<string> matchStrings, std::vector<string>& supersetMatchStrings);
+    std::vector<int> GetRowColPreMultipliers(DayFour::CheckDirection checkDirection);
+    bool CheckWordMatch(const std::vector<std::vector<char>>& wordMatchMatrix, string matchString, int row, int col, CheckDirection checkDirection);
     
 public:
     // Methods

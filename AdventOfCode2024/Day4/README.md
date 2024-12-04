@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayFourInput.txt
+Word match count is:
+2549
 ```
 
 **Part 2:**
