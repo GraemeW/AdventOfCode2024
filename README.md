@@ -15,7 +15,7 @@
 |   1   | [Historian Hysteria](./AdventOfCode2024/Day1/README.md) |    X     |    X     | Sort lists, abs(delta()), sum. Map frequency, multiply, sum.                             |
 |   2   | [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)  |    X     |    X     | Iterate vector, check adjacent element criteria. Remove vector elements, check criteria. |
 |   3   |    [Mull It Over](./AdventOfCode2024/Day3/README.md)    |    X     |    X     | Regex match, multiply elements, sum. Complex regex, toggle enable/disable on mul()       |
-|   4   |    [Ceres Search](./AdventOfCode2024/Day4/README.md)    |    X     |          | Raster across 2D vector, pattern match.                                                  |
+|   4   |    [Ceres Search](./AdventOfCode2024/Day4/README.md)    |    X     |    X     | Raster across 2D vector, pattern match, sum matches.                                     |
 |   5   |                                                         |          |          |                                                                                          |
 |   6   |                                                         |          |          |                                                                                          |
 |   7   |                                                         |          |          |                                                                                          |
