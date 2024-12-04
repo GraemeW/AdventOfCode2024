@@ -19,6 +19,8 @@ private:
     bool verbose = false;
     int lineBufferLength = 3;
     std::vector<string> matchStrings = {"XMAS"}; // Note:  Will use below method to build superset match (e.g. incl. reverse)
+    char matchCharacterPartTwo = 'A';
+    std::vector<string> matchStringsPartTwo = {"MAS"};
     
     enum CheckDirection { NorthWest, North, NorthEast, West };
     char dummyChar = 'O';
@@ -28,6 +30,7 @@ private:
     void GetSupersetMatchStrings(std::vector<string> matchStrings, std::vector<string>& supersetMatchStrings);
     std::vector<int> GetRowColPreMultipliers(DayFour::CheckDirection checkDirection);
     bool CheckWordMatch(const std::vector<std::vector<char>>& wordMatchMatrix, string matchString, int row, int col, CheckDirection checkDirection);
+    bool CheckXMatch(const std::vector<std::vector<char>>& wordMatchMatrix, string matchString, int row, int col, bool fromTop);
     
 public:
     // Methods

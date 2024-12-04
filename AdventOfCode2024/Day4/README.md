@@ -12,7 +12,10 @@ Word match count is:
 
 **Part 2:**
 ```
-
+Loading file:
+Resources/DayFourInput.txt
+Word match count is:
+2003
 ```
 
 ## Problem Text

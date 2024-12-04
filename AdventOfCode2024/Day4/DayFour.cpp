@@ -39,14 +39,12 @@ void DayFour::GetWordMatchMatrix(string& input, std::vector<std::vector<char>>& 
         wordMatchMatrix.push_back(wordMatchLine);
     }
     
-    /* -- Note:  No end buffers needed in current implementation since not checking South direction
-    // Add in end buffer rows
+    // Add in end buffer rows -- Unused in Part1, necessary for Part2
     std::vector<char> dummyLine(lineLength, dummyChar);
     for (int i = 0; i < lineBufferLength; i++)
     {
         wordMatchMatrix.push_back(dummyLine);
     }
-    */
     
     if (verbose)
     {
@@ -133,6 +131,33 @@ bool DayFour::CheckWordMatch(const std::vector<std::vector<char>>& wordMatchMatr
     return isMatch;
 }
 
+bool DayFour::CheckXMatch(const std::vector<std::vector<char>>& wordMatchMatrix, string matchString, int row, int col, bool fromTop)
+{
+    std::vector<int> rowColPreMultipliers = {1, 1};
+    int startRow = row - 1;
+    int startCol = col - 1;
+    if (!fromTop)
+    {
+        rowColPreMultipliers[0] = -1;
+        startRow = row + 1;
+        startCol = col - 1;
+    }
+    
+    bool isMatch = true;
+    for(int i = 0; i < matchString.size(); ++i)
+    {
+        int rowCheckOffset = rowColPreMultipliers[0] * i;
+        int colCheckOffset = rowColPreMultipliers[1] * i;
+        
+        if (matchString[i] != wordMatchMatrix[startRow + rowCheckOffset][startCol + colCheckOffset])
+        {
+            isMatch = false;
+            break;
+        }
+    }
+    return isMatch;
+}
+
 void DayFour::CrunchPartOne(string& input)
 {
     int wordMatchCount = 0;
@@ -146,7 +171,8 @@ void DayFour::CrunchPartOne(string& input)
     GetSupersetMatchStrings(matchStrings, supersetMatchStrings);
     
     // Rastering NW -> SE
-    for (int row = 0; row < wordMatchMatrix.size(); row++) {
+    for (int row = 0; row < wordMatchMatrix.size(); row++)
+    {
         if (row < lineBufferLength) { continue; }
         for (int col = 0; col < wordMatchMatrix[row].size(); col++)
         {
@@ -184,6 +210,44 @@ void DayFour::CrunchPartOne(string& input)
 
 void DayFour::CrunchPartTwo(string& input)
 {
-    std::cout << input;
+    int wordMatchCount = 0;
+    
+    // Convert input to 2D vector w/ row/col buffers
+    std::vector<std::vector<char>> wordMatchMatrix;
+    GetWordMatchMatrix(input, wordMatchMatrix);
+    
+    // Expand match strings to check reverse
+    std::vector<string> supersetMatchStrings;
+    GetSupersetMatchStrings(matchStringsPartTwo, supersetMatchStrings);
+    
+    // Rastering NW -> SE
+    for (int row = 0; row < wordMatchMatrix.size(); row++)
+    {
+        if (row < lineBufferLength) { continue; }
+        for (int col = 0; col < wordMatchMatrix[row].size(); col++)
+        {
+            if (row < lineBufferLength) { continue; }
+            if (row > (wordMatchMatrix[row].size() - lineBufferLength)) { continue; }
+            
+            bool topMatch = false;
+            bool bottomMatch = false;
+            for (int iMatchString = 0; iMatchString < supersetMatchStrings.size(); iMatchString++)
+            {
+                string matchString = supersetMatchStrings[iMatchString];
+                
+                // Check if first character of match string aligns to entry
+                if (wordMatchMatrix[row][col] == matchCharacterPartTwo)
+                {
+                    if (!topMatch && CheckXMatch(wordMatchMatrix, matchString, row, col, true)) { topMatch = true; }
+                    if (!bottomMatch && CheckXMatch(wordMatchMatrix, matchString, row, col, false)) { bottomMatch = true; }
+                }
+            }
+            if (topMatch && bottomMatch) { wordMatchCount++; }
+        }
+    }
+    
+    //Output
+    std::cout << "Word match count is:" << std::endl;
+    std::cout << wordMatchCount << std::endl;
 }
 
