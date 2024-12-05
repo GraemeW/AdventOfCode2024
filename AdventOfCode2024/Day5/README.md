@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayFiveInput.txt
+Valid mid-page sum is:
+4569
 ```
 
 **Part 2:**
