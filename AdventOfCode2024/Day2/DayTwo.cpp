@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <list>
+#include <vector>
 #include "DayTwo.hpp"
 
 bool DayTwo::CheckCriteria(int currentEntry, int lastEntry, bool isIncrementing, bool verbose)

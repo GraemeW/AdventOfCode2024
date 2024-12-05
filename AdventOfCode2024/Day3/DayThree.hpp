@@ -5,8 +5,6 @@
 #pragma once
 #include <stdio.h>
 #include <string>
-#include <list>
-#include <vector>
 #include "../Day.h"
 
 #ifndef DayThree_hpp
