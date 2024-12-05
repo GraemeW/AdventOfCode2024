@@ -122,45 +122,6 @@ void DayFive::CrunchPartOne(string& input)
             int midIndex = floor(localPrintEntry.size() / 2);
             midPageSum += localPrintEntry[midIndex];
         }
-        
-        if (doSortOnUnsorted)
-        {
-            // Wholly unnecessary, reading comprehension fail
-            int sortIterations = 0;
-            // Complex sorting criteria, will require multiple passes
-            while (!IsRuleMapCriteriaMet(localPrintEntry, forwardRuleMap, pageUpdate))
-            {
-                UpdatePrintEntry(localPrintEntry, pageUpdate[0], pageUpdate[1], pageUpdate[2]);
-                
-                if (sortIterations > maxSortIterations) {
-                    std::cout << "WARNING:  Max iteration count reached, exiting.";
-                    break;
-                }
-
-                sortIterations++;
-            }
-            sortedPrintEntries.push_back(localPrintEntry);
-        }
-    }
-    
-    if (doSortOnUnsorted)
-    {
-        int sortedMidPageSum = 0;
-        for  (auto const& sortedPrintEntry : sortedPrintEntries)
-        {
-            int midIndex = floor(sortedPrintEntry.size() / 2);
-            sortedMidPageSum += sortedPrintEntry[midIndex];
-            
-            if (verbose) {
-                std::cout << "Sorted Print Entry:";
-                for (auto const& pageNumber : sortedPrintEntry) {
-                    std::cout << pageNumber << ",";
-                }
-                std::cout << std::endl;
-                std::cout << ", with mid-value: " << sortedPrintEntry[midIndex] << std::endl;
-            }
-            std::cout << "Sum @ " << sortedMidPageSum << std::endl;
-        }
     }
     
     //Output
@@ -170,5 +131,71 @@ void DayFive::CrunchPartOne(string& input)
 
 void DayFive::CrunchPartTwo(string& input)
 {
-    std::cout << input;
+    std::map<int, std::vector<int>> forwardRuleMap;
+    std::map<int, std::vector<int>> backwardRuleMap;
+    std::vector<std::vector<int>> printEntries;
+    
+    // Read out input into friendlier containers
+    std::istringstream lineStream(input);
+    for (std::string line; std::getline(lineStream, line); )
+    {
+        if (line.find(ruleMatch) != std::string::npos)
+        {
+            ParseLineForRuleMaps(line, forwardRuleMap, backwardRuleMap);
+        }
+        else if (line.find(entryMatch) != std::string::npos)
+        {
+            ParseLineForEntry(line, printEntries);
+        }
+    }
+    
+    // Check which entries are sorted, increment
+    int midPageSum = 0;
+    std::vector<std::vector<int>> sortedPrintEntries;
+    for (auto const& printEntry : printEntries)
+    {
+        std::vector<int> localPrintEntry(printEntry); // Local copy
+        std::vector<int> pageUpdate; // pageNumber, oldIndex, newIndex
+        
+        // Skip sorted entries
+        if (IsRuleMapCriteriaMet(localPrintEntry, forwardRuleMap, pageUpdate)) { continue; }
+        
+        // Wholly unnecessary, reading comprehension fail
+        int sortIterations = 0;
+        // Complex sorting criteria, will require multiple passes
+        while (!IsRuleMapCriteriaMet(localPrintEntry, forwardRuleMap, pageUpdate))
+        {
+            UpdatePrintEntry(localPrintEntry, pageUpdate[0], pageUpdate[1], pageUpdate[2]);
+            
+            if (sortIterations > maxSortIterations) {
+                std::cout << "WARNING:  Max iteration count reached, exiting.";
+                break;
+            }
+            sortIterations++;
+        }
+
+        sortedPrintEntries.push_back(localPrintEntry);
+    }
+    
+    // Calculate sum (could also just do this in-line in above loop)
+    int sortedMidPageSum = 0;
+    for  (auto const& sortedPrintEntry : sortedPrintEntries)
+    {
+        int midIndex = floor(sortedPrintEntry.size() / 2);
+        sortedMidPageSum += sortedPrintEntry[midIndex];
+        
+        if (verbose) {
+            std::cout << "Sorted Print Entry:";
+            for (auto const& pageNumber : sortedPrintEntry) {
+                std::cout << pageNumber << ",";
+            }
+            std::cout << std::endl;
+            std::cout << ", with mid-value: " << sortedPrintEntry[midIndex] << std::endl;
+        }
+        if (verbose) { std::cout << "Sum @ " << sortedMidPageSum << std::endl; }
+    }
+    
+    //Output
+    std::cout << "Valid mid-page sum is:" << std::endl;
+    std::cout << sortedMidPageSum << std::endl;
 }

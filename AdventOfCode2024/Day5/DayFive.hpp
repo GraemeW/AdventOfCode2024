@@ -21,7 +21,7 @@ private:
     bool doSortOnUnsorted = false;
     int maxSortIterations = 10000;
     
-    bool verbose = true;
+    bool verbose = false;
     
     // Methods
     void ParseLineForRuleMaps(string const& line, std::map<int, std::vector<int>>& forwardRuleMap, std::map<int, std::vector<int>>& backwardRuleMap);
