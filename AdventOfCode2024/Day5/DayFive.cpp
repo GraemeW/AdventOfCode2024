@@ -150,7 +150,6 @@ void DayFive::CrunchPartTwo(string& input)
     }
     
     // Check which entries are sorted, increment
-    int midPageSum = 0;
     std::vector<std::vector<int>> sortedPrintEntries;
     for (auto const& printEntry : printEntries)
     {

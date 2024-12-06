@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DaySixInput.txt
+Total guard positions is:
+4559
 ```
 
 **Part 2:**
