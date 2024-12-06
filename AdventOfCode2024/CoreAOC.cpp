@@ -49,6 +49,11 @@ Day* CoreAOC::GetDaySelectors(CoreAOC::AdventDay adventDay)
             DayFive* dayFive = new DayFive();
             return dayFive;
         }
+        case CoreAOC::AdventDay::AdventDaySix:
+        {
+            DaySix* daySix = new DaySix();
+            return daySix;
+        }
     }
     DayZero* dayZero = new DayZero();
     return dayZero;
