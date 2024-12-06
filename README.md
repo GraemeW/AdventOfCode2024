@@ -17,7 +17,7 @@
 |   3   |    [Mull It Over](./AdventOfCode2024/Day3/README.md)    |    X     |    X     | Regex match, multiply elements, sum. Complex regex, toggle enable/disable on mul().      |
 |   4   |    [Ceres Search](./AdventOfCode2024/Day4/README.md)    |    X     |    X     | Raster across 2D vector, pattern match, sum matches.                                     |
 |   5   |    [Print Queue](./AdventOfCode2024/Day5/README.md)     |    X     |    X     | Check lists vs. sorting criteria, sum mid-pts. Sort lists vs. criteria, sum mid-pts.     |
-|   6   |                                                         |          |          |                                                                                          |
+|   6   |  [Guard Gallivant](./AdventOfCode2024/Day6/README.md)   |          |          |                                                                                          |
 |   7   |                                                         |          |          |                                                                                          |
 |   8   |                                                         |          |          |                                                                                          |
 |   9   |                                                         |          |          |                                                                                          |
