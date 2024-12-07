@@ -14,4 +14,5 @@
 #include "Day4/DayFour.hpp"
 #include "Day5/DayFive.hpp"
 #include "Day6/DaySix.hpp"
+#include "Day7/DaySeven.hpp"
 #endif /* Days_h */
