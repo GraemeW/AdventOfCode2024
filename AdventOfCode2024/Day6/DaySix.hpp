@@ -24,22 +24,34 @@ private:
     int facilityOpenSpace = 0;
     int facilityBlockedSpace = 1;
     int facilityGuard = 2;
+    int facilityOpenLoopTested = 3;
     int stepSize = 1;
     std::string historyDelimiter = "-";
     Direction guardStartDirection = Direction::North;
     
+    bool verbose = true;
+    
     // State
-    std::map<string, int> guardPositionHistory;
+    std::vector<std::vector<int>> facilityLayout;
     std::vector<int> facilityRowBounds = {0, 0};
     std::vector<int> facilityColBounds = {0, 0};
+    std::map<string, int> guardPositionHistory;
+    std::vector<int> testLoopStartPosition;
+    Direction testLoopStartDirection;
+    std::map<string, int> testLoopHistory;
+    std::map<string, int> testLoopObstacleHistory;
     
     // Methods
-    void ReadInputToFacilityLayout(string const& input, std::vector<std::vector<int>>& facilityLayout, std::vector<int>& guardStartPosition);
+    void ReadInputToFacilityLayout(string const& input, std::vector<int>& guardStartPosition);
     int ConvertInputToFacilityEntry(char const& inputCharacter);
-    std::vector<int> GetTranslationDirection(Direction direction);
-    Direction GetNextDirection(Direction direction);
     bool IsGuardInBounds(int guardRow, int guardCol);
-    bool IsPositionInHistory(int guardRow, int guardCol);
+    string GetNamedDirection(Direction direction);
+    Direction GetNextDirection(Direction direction, bool isClockwise = true);
+    std::vector<int> GetTranslationDirection(Direction direction);
+    std::vector<int> GetTestObstacleOffset(Direction direction, int currentObstacleRow, int currentObstacleCol, int offsetPolarity = 1);
+    bool IsPositionInHistory(int guardRow, int guardCol, bool isTestLoop = false);
+    bool AddObstacleToHistory(int obstacleRow, int obstacleCol);
+    void ResetTestLoop(std::vector<int>& resetGuardPosition, Direction& resetDirection);
 
 public:
     // Methods

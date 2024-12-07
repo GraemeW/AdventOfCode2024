@@ -8,7 +8,7 @@
 int main(int argc, const char * argv[]) {
     // Main Selection
     CoreAOC::AdventDay daySelector = CoreAOC::AdventDaySix;
-    int sectionSelector = 1;
+    int sectionSelector = 2;
 
     // Read out input data
     Day* day = CoreAOC::GetDaySelectors(daySelector);
