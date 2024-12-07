@@ -4,6 +4,10 @@
 
 **Part 1:**
 ```
+Loading file:
+Resources/DaySevenInput.txt
+Bridge output sum is:
+3351424677624
 ```
 
 **Part 2:**

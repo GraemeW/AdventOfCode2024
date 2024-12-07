@@ -18,7 +18,7 @@
 |   4   |    [Ceres Search](./AdventOfCode2024/Day4/README.md)    |    X     |    X     | Raster across 2D vector, pattern match, sum matches.                                     |
 |   5   |    [Print Queue](./AdventOfCode2024/Day5/README.md)     |    X     |    X     | Check lists vs. sorting criteria, sum mid-pts. Sort lists vs. criteria, sum mid-pts.     |
 |   6   |  [Guard Gallivant](./AdventOfCode2024/Day6/README.md)   |    X     |    X     | Traverse environment, check obstacles, path history. Place test obstacle, iterate.       |
-|   7   |   [Bridge Repair](./AdventOfCode2024/Day7/README.md)    |          |          |                                                                                          |
+|   7   |   [Bridge Repair](./AdventOfCode2024/Day7/README.md)    |    X     |          | Generate tree of combos, check & sum.                                                    |
 |   8   |                                                         |          |          |                                                                                          |
 |   9   |                                                         |          |          |                                                                                          |
 |  10   |                                                         |          |          |                                                                                          |
