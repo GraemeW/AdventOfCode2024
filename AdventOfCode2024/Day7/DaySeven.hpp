@@ -32,6 +32,7 @@ public:
     long long ropeOutput;
     RopeNode* addChild;
     RopeNode* multiplyChild;
+    RopeNode* concatenateChild;
 
     RopeNode(long long value) : ropeOutput(value), addChild(nullptr), multiplyChild(nullptr) {}
     
@@ -39,6 +40,7 @@ public:
     {
         free(addChild);
         free(multiplyChild);
+        free(concatenateChild);
     }
 };
 
@@ -54,6 +56,7 @@ public:
     ~Rope() { free(root); }
     
     void AddToRope(long long nextRopeBit);
+    void AddToRopePlus(long long nextRopeBit);
     RopeNode* GetRootRopeNode() { return root; }
     std::vector<RopeNode*> GetLeafNodes() { return leafNodes; }
 };
