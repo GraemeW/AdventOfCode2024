@@ -10,33 +10,33 @@
 
 **Total Score:** 0
 
-|  Day  |                          Title                          | Puzzle 1 | Puzzle 2 | Notes                                                                                    |
-| :---: | :-----------------------------------------------------: | :------: | :------: | :--------------------------------------------------------------------------------------- |
-|   1   | [Historian Hysteria](./AdventOfCode2024/Day1/README.md) |    X     |    X     | Sort lists, abs(delta()), sum. Map frequency, multiply, sum.                             |
-|   2   | [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)  |    X     |    X     | Iterate vector, check adjacent element criteria. Remove vector elements, check criteria. |
-|   3   |    [Mull It Over](./AdventOfCode2024/Day3/README.md)    |    X     |    X     | Regex match, multiply elements, sum. Complex regex, toggle enable/disable on mul().      |
-|   4   |    [Ceres Search](./AdventOfCode2024/Day4/README.md)    |    X     |    X     | Raster across 2D vector, pattern match, sum matches.                                     |
-|   5   |    [Print Queue](./AdventOfCode2024/Day5/README.md)     |    X     |    X     | Check lists vs. sorting criteria, sum mid-pts. Sort lists vs. criteria, sum mid-pts.     |
-|   6   |  [Guard Gallivant](./AdventOfCode2024/Day6/README.md)   |    X     |    X     | Traverse environment, check obstacles, path history. Place test obstacle, iterate.       |
-|   7   |   [Bridge Repair](./AdventOfCode2024/Day7/README.md)    |    X     |    X     | Generate tree of combos, check & sum. Add third node to tree, combo, check, sum.         |
-|   8   |                                                         |          |          |                                                                                          |
-|   9   |                                                         |          |          |                                                                                          |
-|  10   |                                                         |          |          |                                                                                          |
-|  11   |                                                         |          |          |                                                                                          |
-|  12   |                                                         |          |          |                                                                                          |
-|  13   |                                                         |          |          |                                                                                          |
-|  14   |                                                         |          |          |                                                                                          |
-|  15   |                                                         |          |          |                                                                                          |
-|  16   |                                                         |          |          |                                                                                          |
-|  17   |                                                         |          |          |                                                                                          |
-|  18   |                                                         |          |          |                                                                                          |
-|  19   |                                                         |          |          |                                                                                          |
-|  20   |                                                         |          |          |                                                                                          |
-|  21   |                                                         |          |          |                                                                                          |
-|  22   |                                                         |          |          |                                                                                          |
-|  23   |                                                         |          |          |                                                                                          |
-|  24   |                                                         |          |          |                                                                                          |
-|  25   |                                                         |          |          |                                                                                          |
+|  Day  |                           Title                            | Puzzle 1 | Puzzle 2 | Notes                                                                                    |
+| :---: | :--------------------------------------------------------: | :------: | :------: | :--------------------------------------------------------------------------------------- |
+|   1   |  [Historian Hysteria](./AdventOfCode2024/Day1/README.md)   |    X     |    X     | Sort lists, abs(delta()), sum. Map frequency, multiply, sum.                             |
+|   2   |   [Red-Nosed Reports](./AdventOfCode2024/Day2/README.md)   |    X     |    X     | Iterate vector, check adjacent element criteria. Remove vector elements, check criteria. |
+|   3   |     [Mull It Over](./AdventOfCode2024/Day3/README.md)      |    X     |    X     | Regex match, multiply elements, sum. Complex regex, toggle enable/disable on mul().      |
+|   4   |     [Ceres Search](./AdventOfCode2024/Day4/README.md)      |    X     |    X     | Raster across 2D vector, pattern match, sum matches.                                     |
+|   5   |      [Print Queue](./AdventOfCode2024/Day5/README.md)      |    X     |    X     | Check lists vs. sorting criteria, sum mid-pts. Sort lists vs. criteria, sum mid-pts.     |
+|   6   |    [Guard Gallivant](./AdventOfCode2024/Day6/README.md)    |    X     |    X     | Traverse environment, check obstacles, path history. Place test obstacle, iterate.       |
+|   7   |     [Bridge Repair](./AdventOfCode2024/Day7/README.md)     |    X     |    X     | Generate tree of combos, check & sum. Add third node to tree, combo, check, sum.         |
+|   8   | [Resonant Collinearity](./AdventOfCode2024/Day8/README.md) |          |          |                                                                                          |
+|   9   |                                                            |          |          |                                                                                          |
+|  10   |                                                            |          |          |                                                                                          |
+|  11   |                                                            |          |          |                                                                                          |
+|  12   |                                                            |          |          |                                                                                          |
+|  13   |                                                            |          |          |                                                                                          |
+|  14   |                                                            |          |          |                                                                                          |
+|  15   |                                                            |          |          |                                                                                          |
+|  16   |                                                            |          |          |                                                                                          |
+|  17   |                                                            |          |          |                                                                                          |
+|  18   |                                                            |          |          |                                                                                          |
+|  19   |                                                            |          |          |                                                                                          |
+|  20   |                                                            |          |          |                                                                                          |
+|  21   |                                                            |          |          |                                                                                          |
+|  22   |                                                            |          |          |                                                                                          |
+|  23   |                                                            |          |          |                                                                                          |
+|  24   |                                                            |          |          |                                                                                          |
+|  25   |                                                            |          |          |                                                                                          |
 
 ## Running the Solutions
 
