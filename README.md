@@ -19,7 +19,7 @@
 |   5   |      [Print Queue](./AdventOfCode2024/Day5/README.md)      |    X     |    X     | Check lists vs. sorting criteria, sum mid-pts. Sort lists vs. criteria, sum mid-pts.     |
 |   6   |    [Guard Gallivant](./AdventOfCode2024/Day6/README.md)    |    X     |    X     | Traverse environment, check obstacles, path history. Place test obstacle, iterate.       |
 |   7   |     [Bridge Repair](./AdventOfCode2024/Day7/README.md)     |    X     |    X     | Generate tree of combos, check & sum. Add third node to tree, combo, check, sum.         |
-|   8   | [Resonant Collinearity](./AdventOfCode2024/Day8/README.md) |    X     |          | Pair-entries from positions, iterate, avoid dupes, count;                                |
+|   8   | [Resonant Collinearity](./AdventOfCode2024/Day8/README.md) |    X     |          | Pair-entries from positions, delta, iterate, avoid dupes, count. Same w/ multi-delta.    |
 |   9   |                                                            |          |          |                                                                                          |
 |  10   |                                                            |          |          |                                                                                          |
 |  11   |                                                            |          |          |                                                                                          |

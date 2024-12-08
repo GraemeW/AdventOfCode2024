@@ -51,7 +51,9 @@ public:
     // Methods
     void AddMatchNode(AntennaNode* matchNode, bool addToFullSetOnly = false);
     std::vector<int> GetPosition() { return position; }
-    std::vector<int> GetAntiNodePosition(AntennaNode* antennaNodeA, AntennaNode* antennaNodeB);
+    std::vector<int> GetAntiNodePosition(std::vector<int> antennaNodeAPosition, std::vector<int> antennaNodeBPosition);
+    std::vector<std::vector<int>> GetHarmonicAntiNodePositions(AntennaNode* antennaNodeA, AntennaNode* antennaNodeB, FilterBounds* filterBounds);
     int CalculateAntiNodePositions(FilterBounds* filterBounds, std::map<string, bool>& uniqueAntiNodePositions, std::vector<std::vector<int>>& antiNodePositions, bool useOneSidedMatch = true);
+    int CalculateAntiNodePositionsWithHarmonics(FilterBounds* filterBounds, std::map<string, bool>& uniqueAntiNodePositions, std::vector<std::vector<int>>& antiNodePositions, bool useOneSidedMatch = true);
 };
 #endif /* DayEight_hpp */
