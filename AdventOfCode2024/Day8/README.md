@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayEightInput.txt
+Total antiNode count is:
+423
 ```
 
 **Part 2:**
