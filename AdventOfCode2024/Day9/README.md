@@ -4,7 +4,10 @@
 
 **Part 1:**
 ```
-
+Loading file:
+Resources/DayNineInput.txt
+CheckSum is:
+6200294120911
 ```
 
 **Part 2:**
