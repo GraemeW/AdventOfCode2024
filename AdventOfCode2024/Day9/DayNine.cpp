@@ -8,16 +8,12 @@
 #include <vector>
 #include "DayNine.hpp"
 
-void DayNine::CrunchPartOne(string& input)
+std::vector<int> DayNine::ParseFileIDs(string const& input)
 {
     int currentID = 0;
     std::vector<int> outputWithSpacers;
     bool spacerToggle = false;
-    
-    // Strip newline characters
-    input.erase(std::remove(input.begin(), input.end(), '\n'), input.cend());
-    
-    // Step1 -- Parse input into fileID ++ positions
+
     for(int i = 0; i < input.size(); ++i) {
         int fileID = spacerValue;
         if (!spacerToggle) { fileID = currentID; }
@@ -33,7 +29,11 @@ void DayNine::CrunchPartOne(string& input)
         spacerToggle = !spacerToggle;
     }
     
-    // Step2 -- Condense the data vector
+    return outputWithSpacers;
+}
+
+std::vector<int> DayNine::CondenseDataVector(std::vector<int> const& outputWithSpacers)
+{
     int i = 0;
     std::vector<int> condensedOutput(outputWithSpacers);
     while (true) {
@@ -50,12 +50,26 @@ void DayNine::CrunchPartOne(string& input)
         }
         i++;
     }
-    
-    // Step 3 -- Generate checksum
+    return condensedOutput;
+}
+
+long long DayNine::GenerateCheckSum(std::vector<int> const& condensedOutput)
+{
     long long checkSum = 0;
     for (int i = 0; i < condensedOutput.size(); i++) {
         checkSum += (i * condensedOutput[i]);
     }
+    return checkSum;
+}
+
+void DayNine::CrunchPartOne(string& input)
+{
+    // Strip newline characters for safety on later int conversions
+    input.erase(std::remove(input.begin(), input.end(), '\n'), input.cend());
+    
+    std::vector<int> outputWithSpacers = ParseFileIDs(input);
+    std::vector<int> condensedOutput = CondenseDataVector(outputWithSpacers);
+    long long checkSum = GenerateCheckSum(condensedOutput);
      
     // Output
     std::cout << "CheckSum is:" << std::endl;

@@ -22,6 +22,11 @@ private:
     
 public:
     // Methods
+    std::vector<int> ParseFileIDs(string const& input);
+    std::vector<int> CondenseDataVector(std::vector<int> const& outputWithSpacers);
+    long long GenerateCheckSum(std::vector<int> const& condensedOutput);
+    
+    // Default
     void CrunchPartOne(string& input) override;
     void CrunchPartTwo(string& input) override;
     string GetInputPath() override { return inputPath; }
