@@ -16,6 +16,7 @@ class DayNine : public Day
 private:
     // Tunables
     string inputPath = "Resources/DayNineInput.txt";
+    int spacerValue = -1;
     
     bool verbose = false;
     
