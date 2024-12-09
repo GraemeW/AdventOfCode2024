@@ -16,4 +16,5 @@
 #include "Day6/DaySix.hpp"
 #include "Day7/DaySeven.hpp"
 #include "Day8/DayEight.hpp"
+#include "Day9/DayNine.hpp"
 #endif /* Days_h */
