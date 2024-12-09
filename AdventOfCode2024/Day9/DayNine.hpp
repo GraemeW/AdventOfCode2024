@@ -11,6 +11,14 @@
 
 #ifndef DayNine_hpp
 #define DayNine_hpp
+struct DataChunk
+{
+    int iPosition;
+    int freeSpace;
+    std::vector<int> currentEntries;
+    DataChunk(int iPosition, int freeSpace, std::vector<int> currentEntries) : iPosition(iPosition), freeSpace(freeSpace), currentEntries(currentEntries){};
+};
+
 class DayNine : public Day
 {
 private:
@@ -22,9 +30,16 @@ private:
     
 public:
     // Methods
+    // Part 1
     std::vector<int> ParseFileIDs(string const& input);
     std::vector<int> CondenseDataVector(std::vector<int> const& outputWithSpacers);
-    long long GenerateCheckSum(std::vector<int> const& condensedOutput);
+    std::vector<int> ConvertDataChunkToVector(DataChunk* dataChunk, bool flipEntries);
+    // Part 2
+    std::vector<DataChunk*> ParseFileIDsToChunks(string const& input);
+    std::deque<int> CondenseDataVectorWithoutSplitting(std::vector<DataChunk*> const& outputWithSpacers);
+    // General
+    template<typename T>
+    long long GenerateCheckSum(T const& condensedOutput);
     
     // Default
     void CrunchPartOne(string& input) override;

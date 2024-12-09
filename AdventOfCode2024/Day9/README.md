@@ -12,7 +12,10 @@ CheckSum is:
 
 **Part 2:**
 ```
-
+Loading file:
+Resources/DayNineInput.txt
+CheckSum is:
+6220089380679
 ```
 
 **--- Day 9: Disk Fragmenter ---**

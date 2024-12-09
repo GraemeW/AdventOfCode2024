@@ -53,10 +53,100 @@ std::vector<int> DayNine::CondenseDataVector(std::vector<int> const& outputWithS
     return condensedOutput;
 }
 
-long long DayNine::GenerateCheckSum(std::vector<int> const& condensedOutput)
+std::vector<DataChunk*> DayNine::ParseFileIDsToChunks(string const& input)
+{
+    int iPosition = 0;
+    int currentID = 0;
+    std::vector<DataChunk *> outputWithSpacers;
+    
+    for(int i = 0; i < input.size(); ++i) {
+        string entrySizeString = {input[i]};
+        int freeSpace = stoi(entrySizeString);
+        int iPositionAdder = freeSpace;
+        
+        std::vector<int> currentEntries;
+        if (i % 2 == 0) {
+            for (int j = 0; j < freeSpace; j++) { currentEntries.push_back(currentID);}
+            freeSpace = 0;
+        }
+        
+        DataChunk* dataChunk = new DataChunk(iPosition, freeSpace, currentEntries);
+        outputWithSpacers.push_back(dataChunk);
+        
+        iPosition += iPositionAdder;
+        if (i % 2 == 0) { currentID++; }
+    }
+    
+    return outputWithSpacers;
+}
+
+std::vector<int> DayNine::ConvertDataChunkToVector(DataChunk *dataChunk, bool flipEntries)
+{
+    std::vector<int> output(dataChunk->currentEntries);
+    for (int i = 0; i < dataChunk->freeSpace; i++) {
+        output.push_back(spacerValue);
+    }
+    std::reverse(output.begin(), output.end());
+    return output;
+}
+
+std::deque<int> DayNine::CondenseDataVectorWithoutSplitting(std::vector<DataChunk*> const& outputWithSpacers)
+{
+    std::vector<DataChunk*> localOutputWithSpacers(outputWithSpacers);
+    std::deque<int> condensedOutput;
+    
+    int initialOutputSize = (int)(localOutputWithSpacers.size());
+    for (int iDataChunk = initialOutputSize-1; iDataChunk >= 0; iDataChunk-- )
+    {
+        DataChunk* currentBackValue = localOutputWithSpacers.back();
+        if (iDataChunk % 2 == 1) {
+            for (const auto& entry : ConvertDataChunkToVector(currentBackValue, true)){
+                condensedOutput.push_front(entry);
+            }
+            localOutputWithSpacers.pop_back();
+            continue;
+        }
+        
+        int iValidSpacer = 0;
+        for (const auto& spacerCheckDataChunk : localOutputWithSpacers) {
+            if (spacerCheckDataChunk->freeSpace >= currentBackValue->currentEntries.size() ) { break; }
+            iValidSpacer++;
+        }
+            
+        if (iValidSpacer < localOutputWithSpacers.size()) {
+            DataChunk* spacerCheckDataChunk = localOutputWithSpacers[iValidSpacer];
+            std::vector<int> copyEntries(currentBackValue->currentEntries);
+            spacerCheckDataChunk->currentEntries.insert(end(spacerCheckDataChunk->currentEntries), begin(copyEntries), end(copyEntries));
+            spacerCheckDataChunk->freeSpace -= currentBackValue->currentEntries.size();
+        }
+        else
+        { // Otherwise build condensedOutput from the back->forward
+            for (const auto& entry : ConvertDataChunkToVector(currentBackValue, true)){
+                condensedOutput.push_front(entry);
+            }
+        }
+        localOutputWithSpacers.pop_back();
+    }
+    
+    // Add in residuals @ front
+    while(localOutputWithSpacers.size() > 0) {
+        DataChunk* currentBackValue = localOutputWithSpacers.back();
+        
+        for (const auto& entry : ConvertDataChunkToVector(currentBackValue, true)){
+            condensedOutput.push_front(entry);
+        }
+        localOutputWithSpacers.pop_back();
+    }
+    
+    return condensedOutput;
+}
+
+template<typename T> // Need to generalize input type since can receive either deque or vector
+long long DayNine::GenerateCheckSum(T const& condensedOutput)
 {
     long long checkSum = 0;
     for (int i = 0; i < condensedOutput.size(); i++) {
+        if (condensedOutput[i] == spacerValue) { continue; }
         checkSum += (i * condensedOutput[i]);
     }
     return checkSum;
@@ -78,5 +168,15 @@ void DayNine::CrunchPartOne(string& input)
 
 void DayNine::CrunchPartTwo(string& input)
 {
-    std::cout << input;
+    input.erase(std::remove(input.begin(), input.end(), '\n'), input.cend());
+    
+    std::vector<DataChunk*> outputWithSpacers = ParseFileIDsToChunks(input);
+    
+    std::deque<int> condensedOutput = CondenseDataVectorWithoutSplitting(outputWithSpacers);
+    
+    long long checkSum = GenerateCheckSum(condensedOutput);
+     
+    // Output
+    std::cout << "CheckSum is:" << std::endl;
+    std::cout << checkSum << std::endl;
 }
